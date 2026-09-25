@@ -7,7 +7,7 @@
 <meta name="description" content="Seis lugares para comer & tomar en Mar del Plata: Thunder, Pasta Co, Pasta Co Mar & Vino, Parrilla Co, Bodegón Co y Chinita.">
 <meta property="og:title" content="Grupo Co · Gastronomía">
 <meta property="og:description" content="Seis lugares para comer & tomar en Mar del Plata.">
-<meta property="og:image" content="fotos/f79.jpg">
+<meta property="og:image" content="banco/pasta/pasta_10.jpg">
 <link rel="icon" href="logos/grupoco.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,9 +43,11 @@ img{display:block;max-width:100%}
 .logo{display:block;fill:currentColor;width:auto}
 
 /* header */
-header{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:22px var(--gutter);border-bottom:1px solid var(--line)}
-header .brand{width:120px;height:56px;--src:url(logos/grupoco.svg);
+header{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:18px var(--gutter);border-bottom:1px solid var(--line);background:rgba(250,246,241,.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .2s linear}
+header.on{pointer-events:auto}
+header .brand{width:100px;height:48px;--src:url(logos/grupoco.svg);
   background:url(logos/grupoco.svg) left center/contain no-repeat}
 nav{display:flex;gap:28px}
 nav a{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
@@ -53,11 +55,11 @@ nav a:hover{color:var(--brown)}
 @media (max-width:640px){nav{gap:16px} nav a{font-size:10px;letter-spacing:.12em}}
 
 /* hero */
-.hero{padding:clamp(64px,10vw,140px) var(--gutter) clamp(48px,7vw,100px);display:flex;justify-content:center}
-.hero-logo{display:block;width:min(720px,80vw);aspect-ratio:883.6/407.6;background:url(logos/grupoco.svg) center/contain no-repeat}
+.hero{min-height:100vh;min-height:100svh;padding:0 var(--gutter);display:flex;align-items:center;justify-content:center}
+.hero-logo{display:block;width:min(1100px,86vw,calc(72vh*883.6/407.6));aspect-ratio:883.6/407.6;background:url(logos/grupoco.svg) center/contain no-repeat}
 
 /* mosaico */
-.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 var(--gutter);max-width:1180px;margin:0 auto}
+.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 var(--gutter);max-width:1280px;margin:0 auto}
 .mosaico figure{min-width:0;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2);position:relative}
 .mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .mosaico img.on{opacity:1}
@@ -135,7 +137,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1495.984375 422.039062 L 1495.984375 384.117188 C 1495.984375 358.402344 1492.347656 346.972656 1481.4375 346.972656 C 1470.265625 346.972656 1466.890625 358.402344 1466.890625 384.117188 L 1466.890625 422.039062 C 1466.890625 447.757812 1470.265625 459.183594 1481.4375 459.183594 C 1492.347656 459.183594 1495.984375 447.757812 1495.984375 422.039062 M 1443.773438 403.078125 C 1443.773438 358.140625 1459.359375 335.023438 1481.4375 335.023438 C 1503.515625 335.023438 1519.101562 358.140625 1519.101562 403.078125 C 1519.101562 448.015625 1503.515625 471.132812 1481.4375 471.132812 C 1459.359375 471.132812 1443.773438 448.015625 1443.773438 403.078125 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1485.152344 485.515625 L 1514.261719 485.515625 L 1510.867188 498.503906 L 1380.609375 498.503906 L 1377.699219 485.515625 Z M 1485.152344 485.515625 "/>
 </svg>
-      <p class="tag">Fresh pasta bar. Pasta fresca del día, hecha acá.</p>
+      <p class="tag">Fresh pasta bar.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3301,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3301</a></dd>
         <dt>Cuándo</dt><dd>Lunes a sábados 20:15 · domingos 12:30 &amp; 20:15</dd>
@@ -161,7 +163,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1406.269531 583.503906 C 1408.183594 581.761719 1413.261719 573.558594 1409.339844 572.289062 C 1403.945312 570.546875 1397.265625 582.808594 1398.652344 584.667969 C 1400.199219 586.738281 1404.5625 585.054688 1406.269531 583.503906 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1588.835938 611.875 C 1583.816406 609.453125 1578.835938 601.609375 1584.003906 597.152344 C 1593.136719 595.816406 1593.609375 606.355469 1588.835938 611.875 M 1572.292969 602.824219 C 1574.199219 605.933594 1573.382812 608.410156 1575.65625 611.84375 C 1577.359375 614.414062 1581.277344 617.625 1584.28125 618.527344 C 1570.34375 634.316406 1562.480469 614.617188 1572.292969 602.824219 M 1687.683594 566.601562 C 1686.085938 565.757812 1684.164062 566.214844 1683.207031 567.773438 C 1682.921875 568.234375 1682.625 568.683594 1682.308594 569.121094 C 1682.257812 569.1875 1682.207031 569.257812 1682.15625 569.324219 C 1681.984375 569.53125 1681.8125 569.742188 1681.640625 569.949219 C 1680.917969 570.800781 1680.148438 571.605469 1679.367188 572.398438 C 1677.699219 574.078125 1675.996094 575.726562 1674.308594 577.390625 C 1671.550781 580.105469 1668.824219 582.863281 1666.035156 585.550781 C 1665.222656 586.332031 1664.390625 587.089844 1663.527344 587.808594 C 1663.050781 588.207031 1662.566406 588.59375 1662.078125 588.976562 C 1662.066406 588.984375 1662.054688 588.992188 1662.046875 589 C 1661.953125 589.074219 1661.855469 589.148438 1661.761719 589.21875 C 1661.402344 589.492188 1661.046875 589.761719 1660.683594 590.03125 C 1657.914062 592.113281 1655.125 594.175781 1652.226562 596.078125 C 1649.621094 597.789062 1646.933594 599.367188 1644.234375 600.921875 C 1641.300781 602.292969 1636.589844 605.664062 1634.171875 606.824219 C 1622.75 612.304688 1609.421875 616.609375 1596.679688 614.371094 C 1611.640625 585.886719 1578.789062 584.351562 1564.460938 599.933594 C 1557.304688 607.707031 1551.476562 614.035156 1541.851562 619.480469 C 1520.621094 631.496094 1511.78125 624.273438 1500.652344 605.84375 C 1498.039062 601.511719 1494.960938 591.324219 1489.589844 590.460938 C 1473.585938 587.890625 1459.28125 608.527344 1449.554688 618.511719 L 1452.863281 593.367188 C 1442.914062 590.539062 1445.796875 599.355469 1442.574219 603.6875 C 1438.730469 608.851562 1417.0625 624.375 1410.738281 625.574219 C 1392.695312 628.992188 1405.570312 597.375 1402.757812 595.28125 C 1401.128906 594.074219 1396.800781 595.714844 1395.570312 596.972656 C 1394.074219 598.496094 1394.777344 602.21875 1393.613281 602.847656 C 1391.828125 603.808594 1384.484375 605.078125 1382.164062 605.273438 C 1360.710938 607.101562 1341.429688 595.308594 1320.230469 594.5 C 1317.714844 607.378906 1311.269531 621.960938 1298.683594 627.582031 C 1297.144531 626.578125 1297.761719 626.300781 1297.824219 625.121094 C 1298.21875 617.28125 1301.4375 608.242188 1301.457031 600.113281 C 1300.230469 596.15625 1296.269531 594.390625 1292.4375 595.730469 C 1291.027344 596.714844 1291.871094 600.574219 1291.660156 602.386719 C 1290.285156 614.035156 1281.976562 641.269531 1303.265625 632.179688 C 1314.960938 627.1875 1323.558594 614.089844 1328.503906 602.921875 C 1350.078125 607.097656 1370.234375 616.789062 1392.511719 609.417969 L 1392.511719 623.058594 C 1392.511719 624.621094 1395.613281 629.683594 1397.183594 630.785156 C 1409.019531 639.085938 1431.785156 620.398438 1441.269531 613.554688 C 1438.800781 626.71875 1438.152344 641.214844 1452.875 625.5625 C 1459.183594 618.851562 1475.023438 596.269531 1484.675781 596.929688 C 1486.851562 597.078125 1491.648438 608.996094 1493.214844 611.628906 C 1498.878906 621.164062 1505.695312 630.660156 1517.703125 631.773438 C 1533.265625 633.214844 1546.261719 624.734375 1558.234375 616.023438 C 1559.660156 631.175781 1570.476562 634.804688 1583.191406 627.757812 C 1585.96875 626.21875 1590.230469 621.542969 1592.332031 621.128906 C 1594.761719 620.644531 1600.839844 622.015625 1604.523438 621.808594 C 1610.402344 621.476562 1617.90625 619.488281 1623.574219 617.71875 C 1626.738281 616.726562 1641.4375 610.605469 1646.128906 607.386719 C 1649.011719 605.746094 1651.886719 604.082031 1654.675781 602.285156 C 1657.542969 600.441406 1660.300781 598.4375 1663.035156 596.398438 C 1665.453125 594.597656 1667.886719 592.796875 1670.085938 590.730469 C 1672.714844 588.257812 1675.238281 585.664062 1677.808594 583.132812 C 1679.734375 581.234375 1681.671875 579.34375 1683.589844 577.433594 C 1685.539062 575.488281 1687.410156 573.433594 1688.859375 571.078125 C 1689.757812 569.617188 1689.222656 567.414062 1687.683594 566.601562 "/>
 </svg>
-      <p class="tag">Pasta Co mudado al mar. Pastas, frutos de mar &amp; vino.</p>
+      <p class="tag">Pastas, frutos del mar &amp; vino.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=C%C3%B3rdoba+3401,+Mar+del+Plata" target="_blank" rel="noopener">Córdoba 3401, esquina Rodríguez Peña</a></dd>
         <dt>Cuándo</dt><dd>Todos los días desde las 20</dd>
@@ -187,7 +189,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1595.632812 473.171875 L 1550.082031 473.171875 L 1550.082031 468.890625 L 1595.632812 468.890625 Z M 1595.632812 473.171875 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1595.632812 611.109375 L 1550.082031 611.109375 L 1550.082031 606.828125 L 1595.632812 606.828125 Z M 1595.632812 611.109375 "/>
 </svg>
-      <p class="tag">El asadito de siempre. Parrillada para dos, entraditas &amp; un vinito.</p>
+      <p class="tag">Parrilla al asador, todos los días.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3044,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3044</a></dd>
         <dt>Cuándo</dt><dd>Lunes a viernes 20:15 · sábados &amp; domingos mediodía y noche</dd>
@@ -211,7 +213,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1720.398438 573.738281 C 1720.398438 533.441406 1690.355469 505.066406 1652.441406 505.066406 C 1614.289062 505.066406 1584.246094 533.441406 1584.246094 573.738281 C 1584.246094 614.273438 1614.289062 642.410156 1652.441406 642.410156 C 1690.355469 642.410156 1720.398438 614.035156 1720.398438 573.738281 M 1564.21875 573.738281 C 1564.21875 525.097656 1603.558594 488.375 1652.441406 488.375 C 1701.085938 488.375 1740.429688 525.097656 1740.429688 573.738281 C 1740.429688 622.382812 1701.324219 659.105469 1652.441406 659.105469 C 1603.558594 659.105469 1564.21875 622.382812 1564.21875 573.738281 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1741.140625 646.464844 C 1741.140625 639.550781 1746.625 634.066406 1754.015625 634.066406 C 1760.929688 634.066406 1766.417969 639.550781 1766.417969 646.464844 C 1766.417969 653.859375 1760.929688 659.34375 1754.015625 659.34375 C 1746.625 659.34375 1741.140625 653.859375 1741.140625 646.464844 "/>
 </svg>
-      <p class="tag">El patio de la fuente. Abierto todo el día, desde el mediodía.</p>
+      <p class="tag">Comida de bodegón. El patio de la fuente.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3084,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3084</a></dd>
         <dt>Cuándo</dt><dd>Todos los días desde las 12</dd>
@@ -234,7 +236,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1413.25 622.722656 L 1413.25 452.75 L 1526.914062 452.75 L 1526.914062 498.84375 L 1473.15625 498.84375 L 1473.15625 515.210938 L 1521.921875 515.210938 L 1521.921875 558.75 L 1473.15625 558.75 L 1473.15625 576.628906 L 1528.308594 576.628906 L 1528.308594 622.722656 Z M 1413.25 622.722656 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1607.152344 496.519531 L 1607.152344 529.726562 L 1616.671875 529.726562 C 1622.476562 529.726562 1626.949219 528.3125 1630.085938 525.488281 C 1633.21875 522.664062 1634.785156 518.617188 1634.785156 513.355469 C 1634.785156 507.9375 1633.21875 503.777344 1630.085938 500.875 C 1626.949219 497.972656 1622.476562 496.519531 1616.671875 496.519531 Z M 1547.246094 622.722656 L 1547.246094 452.75 L 1624.105469 452.75 C 1646.394531 452.75 1663.421875 457.664062 1675.1875 467.496094 C 1686.953125 477.324219 1692.835938 491.488281 1692.835938 509.988281 C 1692.835938 522.0625 1689.875 532.011719 1683.953125 539.824219 C 1678.035156 547.644531 1670.039062 552.210938 1659.980469 553.527344 L 1705.375 622.722656 L 1636.875 622.722656 L 1607.152344 566.644531 L 1607.152344 622.722656 Z M 1547.246094 622.722656 "/>
 </svg>
-      <p class="tag lower">bar. birra, pool, happy hour &amp; fiestas con nombre.</p>
+      <p class="tag lower">bar. birra, pool &amp; fiestas.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3295,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3295</a></dd>
         <dt>Cuándo</dt><dd>Todos los días</dd>
@@ -255,7 +257,7 @@ footer small{font-size:12px;color:var(--muted)}
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1329.050781 488.46875 L 1329.050781 623.480469 L 1297.183594 623.480469 L 1297.183594 488.46875 L 1242.511719 488.46875 L 1242.511719 457.113281 L 1383.722656 457.113281 L 1383.722656 488.46875 Z M 1329.050781 488.46875 "/>
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 1508.347656 550.898438 L 1487.695312 488.46875 L 1479.34375 488.46875 L 1458.574219 550.898438 Z M 1459.1875 457.113281 L 1508.347656 457.113281 L 1567.917969 623.480469 L 1532.378906 623.480469 L 1518.339844 581.027344 L 1448.601562 581.027344 L 1434.445312 623.480469 L 1399.222656 623.480469 Z M 1459.1875 457.113281 "/>
 </svg>
-      <p class="tag lower">bar. todos los días menos los martes.</p>
+      <p class="tag lower">bar, vinos &amp; sushi all you can eat.</p>
       <dl>
         <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3026,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3026</a></dd>
         <dt>Cuándo</dt><dd>Todos los días menos martes, desde las 19</dd>
@@ -287,8 +289,13 @@ footer small{font-size:12px;color:var(--muted)}
   const IG_GRUPO = "";                    // ej: "grupoco.gastronomia"
   document.querySelectorAll('.ig-grupo').forEach(a=>{ if(IG_GRUPO) a.href='https://instagram.com/'+IG_GRUPO; });
 
+  // La barra de arriba aparece a medida que scrolleás la portada.
+  const header=document.querySelector('header');
+  function barra(){ const t=Math.min(1,Math.max(0,(scrollY-innerHeight*.35)/(innerHeight*.4))); header.style.opacity=t; header.classList.toggle('on',t>.5); }
+  addEventListener('scroll',barra,{passive:true}); barra();
+
   // Mosaico: 8 lugares, se barajan las fotos y cada tanto una cambia por otra.
-  const FOTOS = ["fotos/f10.jpg","fotos/f22.jpg","fotos/f25.jpg","fotos/f29.jpg","fotos/f43.jpg","fotos/f45.jpg","fotos/f46.jpg","fotos/f49.jpg","fotos/f74.jpg","fotos/f78.jpg","fotos/f79.jpg","fotos/f80.jpg","fotos/ig_bodegon_01.jpg","fotos/ig_bodegon_02.jpg","fotos/ig_bodegon_03.jpg","fotos/ig_bodegon_04.jpg","fotos/ig_bodegon_06.jpg","fotos/ig_bodegon_08.jpg","fotos/ig_bodegon_09.jpg","fotos/ig_bodegon_10.jpg","fotos/ig_bodegon_11.jpg","fotos/ig_bodegon_12.jpg","fotos/ig_mar_y_vino_02.jpg","fotos/ig_mar_y_vino_03.jpg","fotos/ig_pasta_01.jpg","fotos/ig_pasta_02.jpg","fotos/ig_pasta_03.jpg","fotos/ig_pasta_04.jpg","fotos/ig_pasta_05.jpg","fotos/ig_pasta_06.jpg","fotos/ig_pasta_07.jpg","fotos/ig_pasta_08.jpg","fotos/ig_pasta_09.jpg","fotos/ig_pasta_10.jpg","fotos/ig_pasta_11.jpg","fotos/ig_pasta_12.jpg","fotos/ig_thunder_01.jpg","fotos/ig_thunder_02.jpg","fotos/ig_thunder_05.jpg","fotos/ig_thunder_06.jpg","fotos/ig_thunder_07.jpg","fotos/ig_thunder_08.jpg","fotos/ig_thunder_09.jpg","fotos/ig_thunder_10.jpg","fotos/ig_thunder_11.jpg","fotos/ig_thunder_12.jpg"];
+  const FOTOS = ["banco/bodegon/bodegon_01.jpg","banco/bodegon/bodegon_02.jpg","banco/bodegon/bodegon_03.jpg","banco/bodegon/bodegon_04.jpg","banco/bodegon/bodegon_05.jpg","banco/bodegon/bodegon_06.jpg","banco/bodegon/bodegon_07.jpg","banco/bodegon/bodegon_08.jpg","banco/bodegon/bodegon_09.jpg","banco/bodegon/bodegon_10.jpg","banco/bodegon/bodegon_11.jpg","banco/bodegon/bodegon_12.jpg","banco/bodegon/bodegon_13.jpg","banco/bodegon/bodegon_14.jpg","banco/bodegon/bodegon_15.jpg","banco/bodegon/bodegon_16.jpg","banco/bodegon/bodegon_17.jpg","banco/bodegon/bodegon_18.jpg","banco/bodegon/bodegon_19.jpg","banco/chinita/chinita_01.jpg","banco/chinita/chinita_02.jpg","banco/chinita/chinita_03.jpg","banco/chinita/chinita_04.jpg","banco/chinita/chinita_05.jpg","banco/chinita/chinita_06.jpg","banco/chinita/chinita_07.jpg","banco/chinita/chinita_08.jpg","banco/chinita/chinita_09.jpg","banco/chinita/chinita_10.jpg","banco/chinita/chinita_11.jpg","banco/chinita/chinita_12.jpg","banco/chinita/chinita_13.jpg","banco/maryvino/maryvino_01.jpg","banco/maryvino/maryvino_02.jpg","banco/maryvino/maryvino_03.jpg","banco/maryvino/maryvino_04.jpg","banco/maryvino/maryvino_05.jpg","banco/maryvino/maryvino_06.jpg","banco/maryvino/maryvino_07.jpg","banco/maryvino/maryvino_08.jpg","banco/parrilla/parrilla_01.jpg","banco/parrilla/parrilla_02.jpg","banco/parrilla/parrilla_03.jpg","banco/parrilla/parrilla_04.jpg","banco/pasta/pasta_01.jpg","banco/pasta/pasta_02.jpg","banco/pasta/pasta_03.jpg","banco/pasta/pasta_04.jpg","banco/pasta/pasta_05.jpg","banco/pasta/pasta_06.jpg","banco/pasta/pasta_07.jpg","banco/pasta/pasta_08.jpg","banco/pasta/pasta_09.jpg","banco/pasta/pasta_10.jpg","banco/pasta/pasta_11.jpg","banco/thunder/thunder_01.jpg","banco/thunder/thunder_02.jpg","banco/thunder/thunder_03.jpg","banco/thunder/thunder_04.jpg","banco/thunder/thunder_05.jpg","banco/thunder/thunder_06.jpg","banco/thunder/thunder_07.jpg","banco/thunder/thunder_08.jpg","banco/thunder/thunder_09.jpg","banco/thunder/thunder_10.jpg","banco/thunder/thunder_11.jpg","banco/thunder/thunder_12.jpg","banco/thunder/thunder_13.jpg","banco/thunder/thunder_14.jpg","banco/thunder/thunder_15.jpg","banco/thunder/thunder_16.jpg"];
   const SLOTS = 8;
   const mos = document.getElementById('mosaico');
   const pool = FOTOS.slice().sort(()=>Math.random()-.5);
