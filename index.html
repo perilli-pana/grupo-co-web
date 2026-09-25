@@ -59,7 +59,7 @@ nav a:hover{color:var(--brown)}
 .hero-logo{display:block;width:min(550px,62vw,calc(36vh*883.6/407.6));aspect-ratio:883.6/407.6;background:url(logos/grupoco.svg) center/contain no-repeat}
 
 /* mosaico */
-.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 var(--gutter);max-width:1280px;margin:0 auto}
+.mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 var(--gutter)}
 .mosaico figure{min-width:0;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2);position:relative}
 .mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
 .mosaico img.on{opacity:1}
@@ -73,9 +73,12 @@ section{padding:clamp(56px,8vw,112px) var(--gutter)}
 @media (max-width:980px){.locales{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.locales{grid-template-columns:1fr}}
 .local{min-width:0;position:relative;overflow:hidden;border-radius:4px;background:var(--black);color:var(--paper);min-height:420px}
-.local .fondo{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.42;transition:opacity .5s ease,transform 1.2s ease}
-.local:hover .fondo{opacity:.55;transform:scale(1.03)}
-.local .fondo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,8,7,.15) 0%,rgba(11,8,7,.55) 55%,rgba(11,8,7,.9) 100%)}
+.local .fondo{position:absolute;inset:0;opacity:.42;transition:opacity .6s ease,transform 1.4s ease}
+.local .fondo .capa{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease}
+.local .fondo .capa.on{opacity:1}
+.local:hover .fondo{opacity:.85;transform:scale(1.03)}
+.local:hover .fondo:after{opacity:.55}
+.local .fondo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,8,7,.15) 0%,rgba(11,8,7,.55) 55%,rgba(11,8,7,.9) 100%);transition:opacity .6s ease}
 .local .cont{position:relative;z-index:1;height:100%;padding:36px 28px 28px;display:flex;flex-direction:column;gap:18px;min-height:420px}
 .local .logo{height:44px;max-width:240px;margin-right:auto;color:var(--paper)}
 .local .tag{font-size:15px;line-height:1.45;max-width:30ch}
@@ -132,7 +135,7 @@ footer small{font-size:12px;color:var(--muted)}
   <div class="locales">
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/pasta/pasta_10.jpg)"></div>
+      <div class="fondo" data-local="pasta"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Pasta Co" xmlns="http://www.w3.org/2000/svg" viewBox="394.9 323.9 1130.2 432.1">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 528.5625 423.359375 C 528.5625 381 518.117188 365.914062 480.398438 365.914062 L 453.707031 365.914062 L 453.707031 534.777344 L 478.078125 534.777344 C 518.117188 534.777344 528.5625 516.207031 528.5625 475.003906 Z M 585.433594 447.730469 C 585.433594 539.417969 550.035156 563.210938 478.660156 563.210938 L 453.707031 563.210938 L 453.707031 743.101562 L 400.898438 743.101562 L 400.898438 336.894531 L 480.398438 336.894531 C 545.972656 336.894531 585.433594 360.6875 585.433594 447.730469 "/>
@@ -158,7 +161,7 @@ footer small{font-size:12px;color:var(--muted)}
     </article>
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/maryvino/maryvino_02.jpg)"></div>
+      <div class="fondo" data-local="maryvino"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Pasta Co Mar y Vino" xmlns="http://www.w3.org/2000/svg" viewBox="224.7 309.4 1471.1 463.9">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 344.976562 399.007812 C 344.976562 361.089844 335.628906 347.585938 301.867188 347.585938 L 277.972656 347.585938 L 277.972656 498.738281 L 299.789062 498.738281 C 335.628906 498.738281 344.976562 482.117188 344.976562 445.238281 Z M 395.882812 420.824219 C 395.882812 502.894531 364.195312 524.191406 300.308594 524.191406 L 277.972656 524.191406 L 277.972656 685.210938 L 230.707031 685.210938 L 230.707031 321.617188 L 301.867188 321.617188 C 360.558594 321.617188 395.882812 342.914062 395.882812 420.824219 "/>
@@ -188,7 +191,7 @@ footer small{font-size:12px;color:var(--muted)}
     </article>
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/parrilla/parrilla_04.jpg)"></div>
+      <div class="fondo" data-local="parrilla"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Parrilla Co" xmlns="http://www.w3.org/2000/svg" viewBox="315.5 421.0 1288.9 237.9">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 375.644531 459.636719 C 373.75 459.636719 372.164062 459.636719 370.582031 459.957031 L 370.582031 548.226562 C 372.480469 548.542969 374.382812 548.542969 375.644531 548.542969 C 388.617188 548.542969 397.160156 537.152344 397.160156 504.25 C 397.160156 473.242188 387.984375 459.636719 375.644531 459.636719 M 375.964844 579.863281 C 374.066406 579.863281 371.851562 580.183594 370.582031 579.863281 L 370.582031 632.382812 C 370.582031 639.980469 375.015625 644.722656 381.65625 644.722656 L 381.65625 650.734375 L 321.542969 650.734375 L 321.542969 644.722656 C 327.238281 644.722656 331.984375 640.292969 331.984375 632.382812 L 331.984375 448.878906 C 331.984375 440.019531 328.1875 435.59375 321.542969 435.59375 L 321.542969 429.582031 C 333.25 428.632812 345.273438 427.679688 368.054688 427.679688 C 409.816406 427.679688 436.390625 451.726562 436.390625 504.25 C 436.390625 557.71875 412.664062 579.863281 375.964844 579.863281 "/>
@@ -218,7 +221,7 @@ footer small{font-size:12px;color:var(--muted)}
     </article>
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/bodegon/bodegon_10.jpg)"></div>
+      <div class="fondo" data-local="bodegon"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Bodegón Co" xmlns="http://www.w3.org/2000/svg" viewBox="147.6 414.4 1624.8 253.8">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 266.367188 598.0625 C 266.367188 584.46875 259.453125 576.839844 250.15625 571.59375 L 207.472656 607.597656 L 207.472656 627.390625 L 233.222656 627.390625 C 252.0625 627.390625 266.367188 619.761719 266.367188 598.0625 M 207.472656 517.707031 L 207.472656 573.5 L 248.007812 538.6875 C 252.777344 534.871094 257.785156 531.058594 257.785156 524.859375 C 257.785156 517.707031 250.394531 517.707031 243.476562 517.707031 Z M 309.527344 603.070312 C 309.527344 642.890625 275.191406 657.671875 233.222656 657.671875 L 153.582031 657.671875 C 165.027344 653.617188 167.414062 635.257812 167.414062 628.105469 L 167.414062 520.328125 C 167.414062 511.503906 165.027344 493.144531 153.582031 489.089844 L 255.636719 489.089844 C 275.90625 489.089844 297.605469 492.667969 297.605469 517.707031 C 297.605469 533.203125 283.296875 544.890625 272.804688 552.996094 C 293.789062 562.53125 309.527344 576.601562 309.527344 603.070312 "/>
@@ -246,7 +249,7 @@ footer small{font-size:12px;color:var(--muted)}
     </article>
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/thunder/thunder_01.jpg)"></div>
+      <div class="fondo" data-local="thunder"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Thunder" xmlns="http://www.w3.org/2000/svg" viewBox="208.6 402.9 1502.8 274.2">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 383.726562 502.78125 L 352.742188 502.78125 L 374.953125 467.15625 L 352.757812 454.550781 L 307.414062 527.269531 L 338.667969 527.269531 L 307.546875 577.769531 L 338.394531 577.769531 L 316.335938 612.734375 L 338.464844 625.449219 L 384.003906 553.273438 L 352.609375 553.273438 Z M 383.726562 502.78125 "/>
@@ -273,7 +276,7 @@ footer small{font-size:12px;color:var(--muted)}
     </article>
 
     <article class="local">
-      <div class="fondo" style="background-image:url(banco/chinita/chinita_06.jpg)"></div>
+      <div class="fondo" data-local="chinita"></div>
       <div class="cont">
       <svg class="logo" role="img" aria-label="Chinita" xmlns="http://www.w3.org/2000/svg" viewBox="346.1 448.1 1227.8 183.9">
 <path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 352.082031 539.882812 C 352.082031 491.230469 385.566406 454.074219 437.199219 454.074219 C 483.519531 454.074219 515.882812 484.125 519.039062 522.585938 L 482.90625 522.585938 C 479.53125 499.800781 461.820312 485.308594 436.589844 485.308594 C 405.53125 485.308594 385.46875 506.789062 385.46875 539.800781 C 385.46875 571.15625 404.109375 594.652344 436.589844 594.652344 C 461.425781 594.652344 479.53125 581.34375 482.90625 557.414062 L 519.039062 557.414062 C 515.882812 596.308594 483.105469 625.925781 437.082031 625.925781 C 384.5625 625.925781 352.082031 587.742188 352.082031 539.882812 "/>
@@ -341,6 +344,21 @@ footer small{font-size:12px;color:var(--muted)}
     nuevo.onload=()=>{ f.appendChild(nuevo); requestAnimationFrame(()=>{ nuevo.classList.add('on'); if(viejo){viejo.classList.remove('on'); setTimeout(()=>viejo.remove(),1300);} }); };
   }
   setInterval(cambiar, 1500);
+
+  // Fondo de cada tarjeta: pasa por todas las fotos de ese local, cada una a su ritmo.
+  document.querySelectorAll('.local .fondo').forEach((fondo,i)=>{
+    const lista=FOTOS.filter(f=>f.startsWith('banco/'+fondo.dataset.local+'/')).sort(()=>Math.random()-.5);
+    if(!lista.length) return;
+    const capas=[document.createElement('div'),document.createElement('div')];
+    capas.forEach(c=>{c.className='capa';fondo.appendChild(c);});
+    let k=0, act=0;
+    capas[0].style.backgroundImage=`url(${lista[0]})`; capas[0].classList.add('on');
+    function siguiente(){
+      k=(k+1)%lista.length; const prox=capas[1-act], im=new Image(); im.src=lista[k];
+      im.onload=()=>{ prox.style.backgroundImage=`url(${lista[k]})`; prox.classList.add('on'); capas[act].classList.remove('on'); act=1-act; };
+    }
+    setTimeout(()=>setInterval(siguiente, 4200), 900+i*650);
+  });
 </script>
 </body>
 </html>
