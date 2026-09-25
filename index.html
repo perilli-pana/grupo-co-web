@@ -56,12 +56,12 @@ nav a:hover{color:var(--brown)}
 
 /* hero */
 .hero{min-height:100vh;min-height:100svh;padding:0 var(--gutter);display:flex;align-items:center;justify-content:center}
-.hero-logo{display:block;width:min(1100px,86vw,calc(72vh*883.6/407.6));aspect-ratio:883.6/407.6;background:url(logos/grupoco.svg) center/contain no-repeat}
+.hero-logo{display:block;width:min(550px,62vw,calc(36vh*883.6/407.6));aspect-ratio:883.6/407.6;background:url(logos/grupoco.svg) center/contain no-repeat}
 
 /* mosaico */
 .mosaico{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:0 var(--gutter);max-width:1280px;margin:0 auto}
 .mosaico figure{min-width:0;aspect-ratio:4/5;overflow:hidden;background:var(--paper-2);position:relative}
-.mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.mosaico img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
 .mosaico img.on{opacity:1}
 @media (max-width:640px){.mosaico{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}}
 
@@ -84,6 +84,7 @@ section{padding:clamp(56px,8vw,112px) var(--gutter)}
 .btn{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
   border:1px solid var(--ink);padding:10px 14px;border-radius:2px;transition:.2s}
 .btn:hover{background:var(--ink);color:var(--paper)}
+.btn.mapa{display:inline-flex;align-items:center;gap:7px;padding:9px 12px}
 .btn.solid{background:var(--brown);border-color:var(--brown);color:var(--paper)}
 .btn.solid:hover{background:var(--ink);border-color:var(--ink)}
 
@@ -139,12 +140,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag">Fresh pasta bar.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3301,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3301</a></dd>
+        <dt>Dónde</dt><dd>Olavarría 3301</dd>
         <dt>Cuándo</dt><dd>Lunes a sábados 20:15 · domingos 12:30 &amp; 20:15</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492236199387" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/pasta__co" target="_blank" rel="noopener">@pasta__co</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Pasta+Co+Olavarr%C3%ADa+3301+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Pasta Co en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -165,12 +167,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag">Pastas, frutos del mar &amp; vino.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=C%C3%B3rdoba+3401,+Mar+del+Plata" target="_blank" rel="noopener">Córdoba 3401, esquina Rodríguez Peña</a></dd>
+        <dt>Dónde</dt><dd>Córdoba 3401, esquina Rodríguez Peña</dd>
         <dt>Cuándo</dt><dd>Todos los días desde las 20</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492236199387" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/pastaco_maryvino" target="_blank" rel="noopener">@pastaco_maryvino</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Pasta+Co+Mar+y+Vino+C%C3%B3rdoba+3401+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Pasta Co Mar y Vino en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -191,12 +194,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag">Parrilla al asador, todos los días.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3044,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3044</a></dd>
+        <dt>Dónde</dt><dd>Olavarría 3044</dd>
         <dt>Cuándo</dt><dd>Lunes a viernes 20:15 · sábados &amp; domingos mediodía y noche</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492235119361" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/parrilla_co" target="_blank" rel="noopener">@parrilla_co</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Parrilla+Co+Olavarr%C3%ADa+3044+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Parrilla Co en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -215,12 +219,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag">Comida de bodegón. El patio de la fuente.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3084,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3084</a></dd>
+        <dt>Dónde</dt><dd>Olavarría 3084</dd>
         <dt>Cuándo</dt><dd>Todos los días desde las 12</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492235648275" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/bodegon__co" target="_blank" rel="noopener">@bodegon__co</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Bodeg%C3%B3n+Co+Olavarr%C3%ADa+3084+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Bodegón Co en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -238,12 +243,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag lower">bar. birra, pool &amp; fiestas.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3295,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3295</a></dd>
+        <dt>Dónde</dt><dd>Olavarría 3295</dd>
         <dt>Cuándo</dt><dd>Todos los días</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492235775694" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/thunder___co" target="_blank" rel="noopener">@thunder___co</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Thunder+Olavarr%C3%ADa+3295+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Thunder en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -259,12 +265,13 @@ footer small{font-size:12px;color:var(--muted)}
 </svg>
       <p class="tag lower">bar, vinos &amp; sushi all you can eat.</p>
       <dl>
-        <dt>Dónde</dt><dd><a href="https://maps.google.com/?q=Olavarr%C3%ADa+3026,+Mar+del+Plata" target="_blank" rel="noopener">Olavarría 3026</a></dd>
+        <dt>Dónde</dt><dd>Olavarría 3026</dd>
         <dt>Cuándo</dt><dd>Todos los días menos martes, desde las 19</dd>
       </dl>
       <div class="btns">
         <a class="btn solid" href="https://wa.me/5492233036036" target="_blank" rel="noopener">Reservar</a>
         <a class="btn" href="https://instagram.com/chinita____bar" target="_blank" rel="noopener">@chinita____bar</a>
+        <a class="btn mapa" href="https://www.google.com/maps/search/?api=1&query=Chinita+Olavarr%C3%ADa+3026+Mar+del+Plata" target="_blank" rel="noopener" aria-label="Chinita en Google Maps"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg><span>Mapa</span></a>
       </div>
     </article>
 
@@ -294,23 +301,23 @@ footer small{font-size:12px;color:var(--muted)}
   function barra(){ const t=Math.min(1,Math.max(0,(scrollY-innerHeight*.35)/(innerHeight*.4))); header.style.opacity=t; header.classList.toggle('on',t>.5); }
   addEventListener('scroll',barra,{passive:true}); barra();
 
-  // Mosaico: 8 lugares, se barajan las fotos y cada tanto una cambia por otra.
-  const FOTOS = ["banco/bodegon/bodegon_01.jpg","banco/bodegon/bodegon_02.jpg","banco/bodegon/bodegon_03.jpg","banco/bodegon/bodegon_04.jpg","banco/bodegon/bodegon_05.jpg","banco/bodegon/bodegon_06.jpg","banco/bodegon/bodegon_07.jpg","banco/bodegon/bodegon_08.jpg","banco/bodegon/bodegon_09.jpg","banco/bodegon/bodegon_10.jpg","banco/bodegon/bodegon_11.jpg","banco/bodegon/bodegon_12.jpg","banco/bodegon/bodegon_13.jpg","banco/bodegon/bodegon_14.jpg","banco/bodegon/bodegon_15.jpg","banco/bodegon/bodegon_16.jpg","banco/bodegon/bodegon_17.jpg","banco/bodegon/bodegon_18.jpg","banco/bodegon/bodegon_19.jpg","banco/chinita/chinita_01.jpg","banco/chinita/chinita_02.jpg","banco/chinita/chinita_03.jpg","banco/chinita/chinita_04.jpg","banco/chinita/chinita_05.jpg","banco/chinita/chinita_06.jpg","banco/chinita/chinita_07.jpg","banco/chinita/chinita_08.jpg","banco/chinita/chinita_09.jpg","banco/chinita/chinita_10.jpg","banco/chinita/chinita_11.jpg","banco/chinita/chinita_12.jpg","banco/chinita/chinita_13.jpg","banco/maryvino/maryvino_01.jpg","banco/maryvino/maryvino_02.jpg","banco/maryvino/maryvino_03.jpg","banco/maryvino/maryvino_04.jpg","banco/maryvino/maryvino_05.jpg","banco/maryvino/maryvino_06.jpg","banco/maryvino/maryvino_07.jpg","banco/maryvino/maryvino_08.jpg","banco/parrilla/parrilla_01.jpg","banco/parrilla/parrilla_02.jpg","banco/parrilla/parrilla_03.jpg","banco/parrilla/parrilla_04.jpg","banco/pasta/pasta_01.jpg","banco/pasta/pasta_02.jpg","banco/pasta/pasta_03.jpg","banco/pasta/pasta_04.jpg","banco/pasta/pasta_05.jpg","banco/pasta/pasta_06.jpg","banco/pasta/pasta_07.jpg","banco/pasta/pasta_08.jpg","banco/pasta/pasta_09.jpg","banco/pasta/pasta_10.jpg","banco/pasta/pasta_11.jpg","banco/thunder/thunder_01.jpg","banco/thunder/thunder_02.jpg","banco/thunder/thunder_03.jpg","banco/thunder/thunder_04.jpg","banco/thunder/thunder_05.jpg","banco/thunder/thunder_06.jpg","banco/thunder/thunder_07.jpg","banco/thunder/thunder_08.jpg","banco/thunder/thunder_09.jpg","banco/thunder/thunder_10.jpg","banco/thunder/thunder_11.jpg","banco/thunder/thunder_12.jpg","banco/thunder/thunder_13.jpg","banco/thunder/thunder_14.jpg","banco/thunder/thunder_15.jpg","banco/thunder/thunder_16.jpg"];
+  // Mosaico: 8 recuadros. Todas las fotos pasan; cada segundo y medio cambia un recuadro, en ronda.
   const SLOTS = 8;
   const mos = document.getElementById('mosaico');
-  const pool = FOTOS.slice().sort(()=>Math.random()-.5);
-  const enUso = pool.splice(0,SLOTS);
-  const figs = enUso.map(src=>{
-    const f=document.createElement('figure'); const im=new Image(); im.src=src; im.className='on'; f.appendChild(im); mos.appendChild(f); return f;
-  });
-  function cambiar(){
-    if(!pool.length) return;
-    const i=Math.floor(Math.random()*SLOTS), f=figs[i];
-    const viejo=f.querySelector('img.on'), nuevo=new Image();
-    nuevo.src=pool.shift(); pool.push(viejo.src.replace(location.href.replace(/[^/]*$/,''),''));
-    nuevo.onload=()=>{ f.appendChild(nuevo); requestAnimationFrame(()=>{ nuevo.classList.add('on'); viejo.classList.remove('on'); setTimeout(()=>viejo.remove(),1300); }); };
+  const cola = FOTOS.map((_,i)=>i).sort(()=>Math.random()-.5);   // fila de espera, barajada
+  const figs = [];
+  for(let s=0;s<SLOTS;s++){
+    const f=document.createElement('figure'); const idx=cola.shift(); f.dataset.idx=idx;
+    const im=new Image(); im.src=FOTOS[idx]; im.className='on'; f.appendChild(im); mos.appendChild(f); figs.push(f);
   }
-  setInterval(cambiar, 2800);
+  const orden=[0,5,2,7,4,1,6,3]; let paso=0;
+  function cambiar(){
+    const f=figs[orden[paso++%orden.length]];
+    const viejo=f.querySelector('img.on'), idx=cola.shift(), nuevo=new Image();
+    cola.push(+f.dataset.idx); f.dataset.idx=idx; nuevo.src=FOTOS[idx];
+    nuevo.onload=()=>{ f.appendChild(nuevo); requestAnimationFrame(()=>{ nuevo.classList.add('on'); if(viejo){viejo.classList.remove('on'); setTimeout(()=>viejo.remove(),1300);} }); };
+  }
+  setInterval(cambiar, 1500);
 </script>
 </body>
 </html>
