@@ -330,18 +330,28 @@ footer small{font-size:12px;color:var(--muted)}
     if(!lista.length) return;
     const capas=[document.createElement('div'),document.createElement('div')];
     capas.forEach(c=>{c.className='capa';fondo.appendChild(c);});
-    let k=0, act=0;
+    let k=0, act=0, tOff=null, ocupado=false;
     capas[0].style.backgroundImage=`url(${lista[0]})`; capas[0].classList.add('on');
-    function siguiente(){
-      k=(k+1)%lista.length; if(k===0) barajar(lista); const prox=capas[1-act], im=new Image(); im.src=lista[k];
-      im.onload=()=>{ prox.style.backgroundImage=`url(${lista[k]})`; prox.style.zIndex=2; capas[act].style.zIndex=1; const vieja=capas[act]; act=1-act; requestAnimationFrame(()=>requestAnimationFrame(()=>{ prox.classList.add('on'); setTimeout(()=>vieja.classList.remove('on'),1600); })); };
+    // rapido=true cuando viene de un click: fundido corto y sin pisarse con el anterior
+    function siguiente(rapido){
+      if(ocupado) return;
+      k=(k+1)%lista.length; if(k===0) barajar(lista);
+      const prox=capas[1-act], vieja=capas[act], im=new Image(); im.src=lista[k]; ocupado=true;
+      im.onload=()=>{
+        clearTimeout(tOff);
+        prox.style.transition='none'; prox.classList.remove('on'); void prox.offsetWidth;   // arranca apagada, sin animar
+        prox.style.backgroundImage=`url(${lista[k]})`; prox.style.zIndex=2; vieja.style.zIndex=1;
+        const dur=rapido?350:1500; prox.style.transition=`opacity ${dur}ms ease`;
+        act=1-act;
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{ prox.classList.add('on'); tOff=setTimeout(()=>{ vieja.classList.remove('on'); ocupado=false; },dur+50); }));
+      };
+      im.onerror=()=>{ ocupado=false; };
     }
-    // cada local a su propio ritmo, sin orden: la próxima espera se sortea cada vez
+    // cada local a su propio ritmo, sin orden. Después de un click, el automático espera 10 s antes de seguir.
     const espera=()=>2800+Math.random()*4200;
-    // Un click pasa a la foto siguiente y reinicia la espera.
     let timer=null;
-    const ciclo=()=>{ clearTimeout(timer); timer=setTimeout(()=>{ siguiente(); ciclo(); }, espera()); };
-    fondo.addEventListener('click',()=>{ siguiente(); ciclo(); });
+    const ciclo=(primera)=>{ clearTimeout(timer); timer=setTimeout(()=>{ siguiente(false); ciclo(); }, primera||espera()); };
+    fondo.addEventListener('click',()=>{ siguiente(true); ciclo(10000); });
     ciclo();
   });
 </script>
