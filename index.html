@@ -296,14 +296,13 @@ footer small{font-size:12px;color:var(--muted)}
   }
   setInterval(cambiar, 1500);
 
-  // Los cuatro símbolos responden al scroll (giran y se separan), siguen un poco al mouse y entran de a uno al cargar.
+  // Los cuatro símbolos responden al scroll (giran y se separan) y entran de a uno al cargar.
   // Todo por atributo SVG, en unidades del dibujo, para que se vea igual en Safari y Chrome.
   const icos=[...document.querySelectorAll('.hero-logo .ico')], word=document.querySelector('.hero-logo .word');
   const CEN=[[617.8, 452.2], [845.9, 435.8], [1074.1, 435.8], [1302.2, 435.8], [959.9, 665.3]];
   const ROT=[170,-130,150,-210], SUBE=[110,65,90,135];
   const ease=x=>1-Math.pow(1-x,3);
-  let mx=0,my=0,tx=0,ty=0, t0=null;
-  addEventListener('mousemove',e=>{ tx=(e.clientX/innerWidth-.5); ty=(e.clientY/innerHeight-.5); },{passive:true});
+  let t0=null;
   function pieza(el,c,dx,dy,rot,sc,op){
     el.setAttribute('transform',`translate(${c[0]+dx} ${c[1]+dy}) rotate(${rot}) scale(${sc}) translate(${-c[0]} ${-c[1]})`);
     el.style.opacity=Math.max(0,Math.min(1,op));
@@ -312,12 +311,10 @@ footer small{font-size:12px;color:var(--muted)}
     if(t0===null) t0=now;
     const t=(now-t0)/1000;
     const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.9)));
-    mx+=(tx-mx)*.06; my+=(ty-my)*.06;
     icos.forEach((g,i)=>{
       const e=ease(Math.min(1,Math.max(0,(t-.1-i*.12)/1.1)));      // entrada
       const flot=Math.sin(t*.7+i*1.6)*6;
-      const dx=mx*(30+i*16), dy=my*(22+i*10);
-      pieza(g,CEN[i], dx, flot+(1-e)*70 - p*SUBE[i] + dy, (1-e)*-25 + p*ROT[i], (.9+e*.1)*(1-p*.18), e*(1-p*.9));
+      pieza(g,CEN[i], 0, flot+(1-e)*70 - p*SUBE[i], (1-e)*-25 + p*ROT[i], (.9+e*.1)*(1-p*.18), e*(1-p*.9));
     });
     const ew=ease(Math.min(1,Math.max(0,(t-.55)/1.1)));
     pieza(word,CEN[4], 0, (1-ew)*40 + p*90, 0, 1, ew*(1-p*2.2));
