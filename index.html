@@ -281,7 +281,8 @@ footer small{font-size:12px;color:var(--muted)}
   // Mosaico: 8 recuadros. Todas las fotos pasan; cada segundo y medio cambia un recuadro, en ronda.
   const SLOTS = 8;
   const mos = document.getElementById('mosaico');
-  const cola = FOTOS.map((_,i)=>i).sort(()=>Math.random()-.5);   // fila de espera, barajada
+  const barajar=a=>{ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+  const cola = barajar(FOTOS.map((_,i)=>i));   // fila de espera, barajada distinto en cada visita
   const figs = [];
   for(let s=0;s<SLOTS;s++){
     const f=document.createElement('figure'); const idx=cola.shift(); f.dataset.idx=idx;
@@ -313,11 +314,10 @@ footer small{font-size:12px;color:var(--muted)}
     const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.9)));
     icos.forEach((g,i)=>{
       const e=ease(Math.min(1,Math.max(0,(t-.1-i*.12)/1.1)));      // entrada
-      const flot=Math.sin(t*.7+i*1.6)*6;
-      pieza(g,CEN[i], 0, flot+(1-e)*70 - p*SUBE[i], (1-e)*-25 + p*ROT[i], (.9+e*.1)*(1-p*.18), e*(1-p*.9));
+      pieza(g,CEN[i], 0, (1-e)*70 - p*SUBE[i], (1-e)*-25 + p*ROT[i], (.9+e*.1)*(1-p*.18), e*(1-p*1.4));
     });
     const ew=ease(Math.min(1,Math.max(0,(t-.55)/1.1)));
-    pieza(word,CEN[4], 0, (1-ew)*40 + p*90, 0, 1, ew*(1-p*2.2));
+    pieza(word,CEN[4], 0, (1-ew)*40 + p*90, 0, 1, ew*(1-p*1.4));
     requestAnimationFrame(logoTick);
   }
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ icos.concat(word).forEach(el=>el.style.opacity=1); }
@@ -325,14 +325,14 @@ footer small{font-size:12px;color:var(--muted)}
 
   // Foto de cada tarjeta: pasa por todas las fotos de ese local, cada una a su ritmo.
   document.querySelectorAll('.local .foto').forEach((fondo,i)=>{
-    const lista=FOTOS.filter(f=>f.startsWith('banco/'+fondo.dataset.local+'/')).sort(()=>Math.random()-.5);
+    const lista=barajar(FOTOS.filter(f=>f.startsWith('banco/'+fondo.dataset.local+'/')));
     if(!lista.length) return;
     const capas=[document.createElement('div'),document.createElement('div')];
     capas.forEach(c=>{c.className='capa';fondo.appendChild(c);});
     let k=0, act=0;
     capas[0].style.backgroundImage=`url(${lista[0]})`; capas[0].classList.add('on');
     function siguiente(){
-      k=(k+1)%lista.length; const prox=capas[1-act], im=new Image(); im.src=lista[k];
+      k=(k+1)%lista.length; if(k===0) barajar(lista); const prox=capas[1-act], im=new Image(); im.src=lista[k];
       im.onload=()=>{ prox.style.backgroundImage=`url(${lista[k]})`; prox.style.zIndex=2; capas[act].style.zIndex=1; const vieja=capas[act]; act=1-act; requestAnimationFrame(()=>requestAnimationFrame(()=>{ prox.classList.add('on'); setTimeout(()=>vieja.classList.remove('on'),1600); })); };
     }
     setTimeout(()=>setInterval(siguiente, 4200), 900+i*650);
