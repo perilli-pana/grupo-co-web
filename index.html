@@ -323,7 +323,7 @@ footer small{font-size:12px;color:var(--muted)}
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ icos.concat(word).forEach(el=>el.style.opacity=1); }
   else requestAnimationFrame(logoTick);
 
-  // Foto de cada tarjeta: pasa por todas las fotos de ese local, cada una a su ritmo.
+  // Foto de cada tarjeta: pasa por todas las fotos de ese local, cada una a su ritmo y sin orden.
   document.querySelectorAll('.local .foto').forEach((fondo,i)=>{
     const lista=barajar(FOTOS.filter(f=>f.startsWith('banco/'+fondo.dataset.local+'/')));
     if(!lista.length) return;
@@ -335,7 +335,9 @@ footer small{font-size:12px;color:var(--muted)}
       k=(k+1)%lista.length; if(k===0) barajar(lista); const prox=capas[1-act], im=new Image(); im.src=lista[k];
       im.onload=()=>{ prox.style.backgroundImage=`url(${lista[k]})`; prox.style.zIndex=2; capas[act].style.zIndex=1; const vieja=capas[act]; act=1-act; requestAnimationFrame(()=>requestAnimationFrame(()=>{ prox.classList.add('on'); setTimeout(()=>vieja.classList.remove('on'),1600); })); };
     }
-    setTimeout(()=>setInterval(siguiente, 4200), 900+i*650);
+    // cada local a su propio ritmo, sin orden: la próxima espera se sortea cada vez
+    const espera=()=>2800+Math.random()*4200;
+    (function ciclo(){ setTimeout(()=>{ siguiente(); ciclo(); }, espera()); })();
   });
 </script>
 </body>
