@@ -74,11 +74,9 @@ section{padding:clamp(56px,8vw,112px) var(--gutter)}
 @media (max-width:980px){.locales{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.locales{grid-template-columns:1fr;gap:48px}}
 .local{min-width:0;display:flex;flex-direction:column}
-.local .foto{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--paper-2)}
+.local .foto{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--paper-2);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .local .foto .capa{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease;will-change:opacity}
 .local .foto .capa.on{opacity:1}
-.local .foto{transition:transform 1.2s ease}
-.local:hover .foto{transform:scale(1.02)}
 .local .logo{height:34px;max-width:220px;margin:26px auto 0 0;color:var(--brown)}
 .local .tag{font-size:15px;line-height:1.45;margin-top:10px;max-width:32ch}
 .local .dato{font-size:13px;line-height:1.6;color:var(--muted);margin-top:12px}
@@ -337,7 +335,11 @@ footer small{font-size:12px;color:var(--muted)}
     }
     // cada local a su propio ritmo, sin orden: la próxima espera se sortea cada vez
     const espera=()=>2800+Math.random()*4200;
-    (function ciclo(){ setTimeout(()=>{ siguiente(); ciclo(); }, espera()); })();
+    // Un click pasa a la foto siguiente y reinicia la espera.
+    let timer=null;
+    const ciclo=()=>{ clearTimeout(timer); timer=setTimeout(()=>{ siguiente(); ciclo(); }, espera()); };
+    fondo.addEventListener('click',()=>{ siguiente(); ciclo(); });
+    ciclo();
   });
 </script>
 </body>
